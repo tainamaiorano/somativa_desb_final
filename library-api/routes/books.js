@@ -46,4 +46,37 @@ router.delete('/:id', async (req, res) => {
     }
 });
 
+/* GET TITULO
+router.get('/titulo', (req, res) => {
+    const titulo = req.params.title;
+    if (!titulo) {
+      res.status(400).send({ error: 'Título não informado' });
+      return;
+    }
+  
+    const livros = Books.find({ titulo: { $regex: titulo, $options: 'i' } });
+    livros.then((livros) => {
+      res.send(livros);
+    }).catch((err) => {
+      res.status(500).send({ error: 'Erro ao buscar livros' });
+    });
+  });
+*/
+
+// GET TITULO
+router.get('/titulo/:title', (req, res) => {
+    const titulo = req.params.title;
+    if (!titulo) {
+      res.status(400).send({ error: 'Título não informado' });
+      return;
+    }
+  
+    const livros = Books.find({ titulo: { $regex: titulo, $options: 'i' } });
+    livros.then((livros) => {
+      res.send(livros);
+    }).catch((err) => {
+      res.status(500).send({ error: 'Erro ao buscar livros' });
+    });
+});
+
 module.exports = router;

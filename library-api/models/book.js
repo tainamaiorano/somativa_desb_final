@@ -4,8 +4,9 @@ const bookSchema = new mongoose.Schema({
     title: {type: String, required: true},
     author: {type: String, required: true},
     year: {type: Number},
-    isbn: {type: Number, required: true}
-})
+    isbn:{type: Number}
+  
+});
 
 //exportanto o modelo paa salvar os livros
 
